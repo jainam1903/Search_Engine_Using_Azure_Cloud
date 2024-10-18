@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+    <h4>Task 2</h4><br/>
+    <label for="number"> Task 2 </label>
+    <form action="/ass2" method="post">
+    <input type="text" name="mag" placeholder="Enter Mag">
+    <input type="text" name="n" placeholder="Enter number">
+
+    <input type="submit" value="Search">
+    </form>
+
+    total time taken to execute the given query: {{ execute_time }}<br>
+    <br>
+    Time taken in each iterarion:<br>
+    <table border = 1>
+        <thead>
+            
+            <th>No.</th>
+            <th> Time of exection </th>
+            
+  
+        </thead>
+        <tbody>
+          {% for t in total_time%}
+          <tr>
+                <td>{{ loop.index }}</td>
+              <td>{{ t }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> <br>
+    <table border = 1>
+        <thead>
+            <th>No.</th>
+            <th>time</th>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>mag</th>
+            <th>place</th>
+        </thead>
+        <tbody>
+          {% for row in x %}
+          <tr>
+          <td>{{ loop.index }}</td>
+          {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+</body>
+</html>

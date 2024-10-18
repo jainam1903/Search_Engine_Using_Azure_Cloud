@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Earthquake Data Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Earthquake Data Analysis</h1>
+
+    <h2>Create Table</h2>
+    <form action="/create_table" method="POST">
+        <input type="submit" value="Create Table">
+    </form>
+    <tr><td><a href="/ass1">Task 1</a></td></tr>
+    <tr><td><a href="/ass2">Task 2</a></td></tr>
+<body>
+    <h1>Insert Random Data</h1>
+    <form action="/execute" method="POST">
+        <label for="num_queries">Number of Rows to Insert:</label>
+        <input type="number" id="num_queries" name="num_queries" min="1" max="1000" required>
+        <br><br>
+        <input type="submit" value="Insert Data">
+    </form>
+    {% if execution_time %}
+    <h3>Execution Time: {{ execution_time }} seconds</h3>
+    {% endif %}
+
+    <form action="/execute_restricted" method="post">
+        <label for="num_queries">Number of Queries:</label>
+        <input type="number" id="num_queries" name="num_queries" min="1" max="1000" required>
+        <br><br>
+        <label for="min_lat">Minimum Latitude:</label>
+        <input type="number" id="min_lat" name="min_lat" step="any" required>
+        <br><br>
+        <label for="max_lat">Maximum Latitude:</label>
+        <input type="number" id="max_lat" name="max_lat" step="any" required>
+        <br><br>
+        <label for="min_long">Minimum Longitude:</label>
+        <input type="number" id="min_long" name="min_long" step="any" required>
+        <br><br>
+        <label for="max_long">Maximum Longitude:</label>
+        <input type="number" id="max_long" name="max_long" step="any" required>
+        <br><br>
+        <input type="submit" value="Execute">
+    </form>
+</body>
+</html>
